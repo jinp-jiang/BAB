@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>MO-ITS</title>
+		<link rel="icon" href="images/faviconNew.ico">
+		<link rel="shortcut icon" href="images/faviconNew.ico" />
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/zerogrid.css" >
+		<link rel="stylesheet" href="css/camera.css">
+		<link rel="stylesheet" href="css/form.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery-migrate-1.1.1.js"></script>
+		<script src="js/superfish.js"></script>
+		<script src="js/forms.js"></script>
+		<script src="js/jquery.ui.totop.js"></script>
+		<script src="js/jquery.equalheights.js"></script>
+		<script src="js/jquery.easing.1.3.js"></script>
+		<script src="js/jquery.ui.totop.js"></script>
+		<script src="js/tms-0.4.1.js"></script>
+		<script src="js/css3-mediaqueries.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('.slider_wrapper')._TMS({
+					show:0,
+					pauseOnHover:false,
+					prevBu:'.prev',
+					nextBu:'.next',
+					playBu:false,
+					duration:800,
+					preset:'fade',
+					pagination:true,//'.pagination',true,'<ul></ul>'
+					pagNums:false,
+					slideshow:8000,
+					numStatus:false,
+					banners: 'fade',
+					waitBannerAnimation:false,
+					progressBar:false
+				});
+			});
+			$(document).ready(function(){
+				!function(){
+			var map=[]
+			 ,names=[]
+			 ,win=$(window)
+			 ,header=$('header')
+			 ,currClass
+			$('.content').each(function(n){
+			 map[n]=this.offsetTop
+			 names[n]=$(this).attr('id')
+			})
+			win
+			 .on('scroll',function(){
+				var i=0
+				while(map[i++]<=win.scrollTop());
+				if(currClass!==names[i-2])
+				currClass=names[i-2]
+				header.removeAttr("class").addClass(names[i-2])
+			 })
+			}(); });
+					function goToByScroll(id){
+				$('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
+				}
+				$(document).ready(function(){
+					$().UItoTop({ easingType: 'easeOutQuart' });
+				});
+		</script>
+		<!--[if lt IE 8]>
+			<div style=' clear: both; text-align:center; position: relative;'>
+				<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+					<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+				</a>
+			</div>
+		<![endif]-->
+		<!--[if lt IE 9]>
+			<script src="js/html5shiv.js"></script>
+			<link rel="stylesheet" media="screen" href="css/ie.css">
+		<![endif]-->
+	</head>
+	<body class="">
+<!--==============================header=================================-->
+		<header class="page1">
+			<div class="zerogrid">
+				<div class="col-full">
+					<div class="wrap-col">
+						<div class="menu_block">
+							<nav class="">
+								<ul class="sf-menu">
+									<li class=" men3"><a onClick="goToByScroll('page4'); return false;" href="#">Website</a> <strong class="hover"></strong></li>
+									<li class=" men4"><a onClick="goToByScroll('page5'); return false;" href="#">Contacts</a> <strong class="hover"></strong></li>
+								</ul>
+							</nav>
+							<div class="clear"></div>
+						</div>
+						<h1><img src="images/oasis.png" width="100" height="80" alt="Gerald Harris attorney at law"></h1>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</header>
+<!--=======content================================-->
+		
+		<div id="page4" class="content">
+			<div class="zerogrid">
+				<div class="col-full">
+					<div class="wrap-col">
+						<h3>MO-ITS软件平台目录</h3>
+					</div>
+				</div>
+				<div class="companies">
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<img src="images/nagios.png" alt="">
+							<div class="text1">Nagios</div>ITS自主网络监控平台（路由器状态）
+							<br>
+							<a href="http://10.179.10.128/nagios/">Go to Site</a>
+						</div>
+					</div>
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<img src="images/nagiosql.png" alt="">
+							<div class="text1">Nagiosql</div>ITS自主监控管理平台
+							<br>
+							<a href="http://10.179.10.128/nagiosql/">Go to Site</a>
+						</div>
+					</div>
+
+					<div class="col-1-4">
+                                                <div class="wrap-col">
+                                                        <img src="images/adcopy.png" alt="">
+                                                        <div class="text1">AdCopyID</div>广告ID管理平台
+                                                        <br>
+                                                        <a href="http://10.179.10.128/MO/adCopyId.php">Go to Site</a>
+                                                </div>
+                                        </div>
+<div class="col-1-4">
+                                                <div class="wrap-col">
+                                                        <img src="images/BAB.png" alt="">
+                                                        <div class="text1">BAB SYSTEM</div>日志展示系统
+                                                        <br>
+                                                        <a href="http://10.179.10.128/MO/hostID.html">Go to Site</a>
+                                                </div>
+                                        </div>
+<div class="col-1-4">
+                                                <div class="wrap-col">
+                                                        <img src="images/webmonitoring.png" alt="">
+                                                        <div class="text1">Web Monitoring</div>集团监控平台（播放机状态）
+                                                        <br>
+                                                        <a href="http://web-monitoring.jcdecaux.com/#/login">Go to Site</a>
+                                                </div>
+                                        </div>
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<img src="images/FTP.png" alt="">
+							<div class="text1">BAB</div>BAB日志包下载
+							<br>
+							<a href="ftp://10.179.10.128/">Go to Site</a>
+						</div>
+					</div>
+					<!--==<div class="clear"></div>==-->
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<img src="images/OpenLayer.png" alt="">
+							<div class="text1">OpenLayer</div>集团OPENLAYER监控平台
+							<br>
+							<a href="http://openlayercn.jcdecaux.com/Administration/ng/index.html#/message">Go to Site</a>
+						</div>
+					</div>
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<img src="images/DatAnalytix.png" alt="">
+							<div class="text1">DatAnalytix</div>集团DatAnlytix广告数据监控平台
+							<br>
+							<a href="https://dquest.jcdecaux.com/">Go to Site</a>
+						</div>
+					</div>
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<img src="images/viooh.png" alt="">
+							<div class="text1">VIOOH</div>VIOOH平台报修
+							<br>
+							<a href="https://viooh.zendesk.com/access/unauthenticated">Go to Site</a>
+						</div>
+					</div>
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<img src="images/VIOOHcontent.png" alt="">
+							<div class="text1">VIOOH CONTENT</div>VIOOH CONTENT 入口
+							<br>
+							<a href="https://content.cn.viooh.com/auth/login">Go to Site</a>
+						</div>
+					</div>
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<img src="images/VIOOHAUTOMATION.png" alt="">
+							<div class="text1">VIOOH AUTOMATION</div>VIOOH AUTOMATION 入口
+							<br>
+							<a href="https://cyclone.eu.auth0.com/login?state=g6Fo2SBDQmN6N1FVbFQtRVNiTGU4Z1JaN3VleU1BR3EwWXVaWKN0aWTZIHZNNG0xTmQwZ3FsZG4teW1uUEpWX25fdFp1T3BVM0Ixo2NpZNkgcEJqbHpMQmNRNmxzUjU1ZmpZb1AxaEhWWDJmZkZjVDc&client=pBjlzLBcQ6lsR55fjYoP1hHVX2ffFcT7&protocol=oauth2&scope=openid%20profile%20email&response_mode=query&response_type=code&redirect_uri=https%3A%2F%2Flogin.viooh.jcdecauxchina.com.cn%2Fcallback%3Fclient%3Dviauth%26callback%3DaHR0cHM6Ly9hdXRvbWF0aW9uLWNuLXN0Zy52aW9vaC5qY2RlY2F1eGNoaW5hLmNvbS5jbi9zbWFydEJSSUNTLw%253D%253D#/">Go to Site</a>
+						</div>
+					</div>
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<img src="images/JCD.png" alt="">
+							<div class="text1">JCDecaux</div>集团故障报修平台
+							<br>
+							<a href="https://support.jcdecaux.net/">Go to Site</a>
+						</div>
+					</div>
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<img src="images/jcdecaux.png" alt="">
+							<div class="text1">DigitalPlayer</div>集团DMS版本管理
+							<br>
+							<a href="https://digitalplayer.wiki.jcdecaux.com/xwiki/bin/view/Home/">Go to Site</a>
+						</div>
+					</div>
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<img src="images/DMS-tags.png" alt="">
+							<div class="text1">DMS-TAGS</div>集团DMS-tags管理平台
+							<br>
+							<a href="https://dms-tags.jcdecaux.com/master/#!/overview">Go to Site</a>
+						</div>
+					</div>
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<img src="images/PANORAMA.png" alt="">
+							<div class="text1">Panorama</div>集团Panorama管理平台
+							<br>
+							<a href="http://panoramacn.jcdecaux.com/panorama-ihm/#/login">Go to Site</a>
+						</div>
+					</div>
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<img src="images/DigiBOARD.png" alt="">
+							<div class="text1">Digi BOARD</div>集团digiboard广告发布系统
+							<br>
+							<a href="http://digiboard.jcdecaux.com/">Go to Site</a>
+						</div>
+					</div>
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<img src="images/ITDB.png" alt="">
+							<div class="text1">ITDB</div>ITS自主资产管理平台
+							<br>
+							<a href="http://itdb.chengtong.tech/">Go to Site</a>
+						</div>
+					</div>
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<img src="images/zabbix.png" alt="">
+							<div class="text1">ZABBIX</div>zabbix监控平台
+							<br>
+							<a href="http://10.179.10.115/zabbix">Go to Site</a>
+							</div>
+					</div>					
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<img src="images/grafana.png" alt="">
+							<div class="text1">GRAFANA</div>Grafana平台
+							<br>
+							<a href="http://10.179.10.115:3000">Go to Site</a>
+						</div>
+					</div>
+					<div class="clear"></div>
+			</div>
+		</div>
+		<div id="page5" class="content">
+			<div class="zerogrid">
+				<div class="col-full">
+					<div class="wrap-col">
+						<div class="slogan">
+							<h3>Contact us</h3>
+							<div class="text1">
+								如有问题，请及时联系我们。
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="map">
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<div class="text1">Address</div>
+							<address>
+								<dl>
+									<dt>STDecaux 申通德高.<br>
+									仙霞路333号,<br>
+									东方维京大厦.
+									</dt>
+									<dd><span>Telephone-Sam:</span>+1 800 603 6035</dd>
+									<dd><span>Telephone-Jinp:</span> 17621 692075</dd>
+									<dd>E-mail-Sam: <a href="#" class="link-1">sam.cheng@jcdecaux.com</a></dd>
+									<dd>E-mail-Jinp: <a href="#" class="link-1">jinp.jiang@jcdecaux.com</a></dd>
+								</dl>
+							</address>
+						</div>
+					</div>
+					<div class="col-1-4">
+						<div class="wrap-col">
+							<div class="text1">&nbsp;</div>
+							<figure class="">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6825.0086043543515!2d121.3972603!3d31.2067549!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b265a0b4422371%3A0xb46d4d29c59e61df!2z5Lit5Zu95LiK5rW35biC6ZW_5a6B5Yy65aSp5bGx5Lic5pa557u05Lqs5aSn5Y6m!5e0!3m2!1szh-CN!2sus!4v1569735252522!5m2!1szh-CN!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+							</figure>
+						</div>
+					</div>
+					<div class="col-2-4">
+						<div class="wrap-col">
+							<div class="text1">Ask a Question</div>
+							<form id="form">
+							<div class="success_wrapper">
+							<div class="success">Contact form submitted!<br>
+							<strong>We will be in touch soon.</strong> </div></div>
+							<fieldset>
+							<label class="name">
+							<input type="text" value="Name:">
+							<br class="clear">
+							<span class="error error-empty">*This is not a valid name.</span><span class="empty error-empty">*This field is required.</span> </label>
+							<label class="email">
+							<input type="text" value="E-mail:">
+							<br class="clear">
+							<span class="error error-empty">*This is not a valid email address.</span><span class="empty error-empty">*This field is required.</span> </label>
+							<label class="message">
+							<textarea>Message:</textarea>
+							<br class="clear">
+							<span class="error">*The message is too short.</span> <span class="empty">*This field is required.</span> </label>
+							<div class="clear"></div>
+							<div class="btns"><a data-type="submit" class="link1">Send</a>
+							<div class="clear"></div>
+							</div></fieldset></form>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>
