@@ -1,0 +1,18 @@
+---
+- hosts: CN-SHD-LX0047.jcd.priv,CN-SHD-LX0048.jcd.priv
+  gather_facts: false
+  remote_user: STD-MO
+  become: yes
+  become_user: root
+  serial: 10
+  vars:
+  vars_files:
+  - /home/STD-MO/bspLog/date.yml
+  tasks:
+   - name: transfer file to server
+     fetch:
+      src: /var/opt/bsp/share/bsp/logs/bsp.log.{{date}}-1.gz
+      dest: /home/jcdcn/bspLogHandle/bspLog/{{date}}/DP
+      flat: no
+      async: 60
+      poll: 2
