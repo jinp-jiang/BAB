@@ -1,0 +1,18 @@
+---
+- hosts: DP
+  gather_facts: false
+  remote_user: STD-MO
+  become: yes
+  become_user: root
+  serial: 10
+  vars:
+  vars_files:
+  - /home/STD-MO/bspLog/date.yml
+  tasks:
+   - name: transfer file to server
+     fetch:
+      src: /var/opt/bsp/share/bsp/logs/bsp.log.{{date}}-1.gz
+      dest: /home/STD-MO/bspLog/DP
+      flat: no
+      async: 60
+      poll: 2
