@@ -5,7 +5,7 @@ ansibleHostsPath="/home/check/ansibleHosts"
 ansibleFinalFile="/home/STD-MO/bspLog/proof/ansibleFinalHosts"
 logFile="/home/STD-MO/bspLog/proof/log/checkResultNew.log"
 cat /dev/null > ${ansibleFinalFile}
-#处理前保存原来的hosts文件
+#Save the original hosts file before processing
 cp "$originalHosts" "$originalHosts""$lsDate"
 cat /dev/null > $logFile
 
