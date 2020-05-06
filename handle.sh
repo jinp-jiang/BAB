@@ -83,10 +83,11 @@ for hostname in `awk '{print $1}' /home/jcdcn/bspLogHandle/hostname${Type}List`;
         do
                 a=`grep "${hostname}" /home/jcdcn/bspLogHandle/bspLog/${lsDate}/${Type}.txt | wc -l`
                 if [ "${a}" = "0" ];then
+                        echo ${lsDate} >> /home/jcdcn/bspLogHandle/adCopyId/timestamp/var
                         echo ${hostname} >> ${adCopyIdError}/${ysDate}/${Type}.txt
                 fi
         done
-
+sort /home/jcdcn/bspLogHandle/adCopyId/timestamp/var | uniq > /home/jcdcn/bspLogHandle/adCopyId/timestamp/${Type}
 cp /home/jcdcn/bspLogHandle/adCopyId/adCopyIdError/${ysDate}/${Type}.txt /home/jcdcn/bspLogHandle/adCopyId/adCopyIdDetail/${ysDate}/
 
 }
