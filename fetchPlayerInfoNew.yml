@@ -1,0 +1,16 @@
+---
+- hosts: CN-SDC-LX1995.jcd.priv
+  gather_facts: no
+  remote_user: STD-MO
+  become: yes
+  become_user: root
+  serial: 8
+  tasks:
+   - name: transfer the script to the player
+     copy:
+      src: /home/STD-MO/bspLog/proof/recordInfoNew.sh
+      dest: /home/STD-MO/recordInfoNew.sh
+   - name: execute the script
+     shell: 'sh /home/STD-MO/recordInfoNew.sh'
+   - name: crontab
+     shell: 'echo "20 07 * * * sh /home/STD-MO/recordInfoNew.sh" >> /var/spool/cron/root'
