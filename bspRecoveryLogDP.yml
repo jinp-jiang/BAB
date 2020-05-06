@@ -7,7 +7,7 @@
   serial: 10
   vars:
   vars_files:
-  - /home/STD-MO/bspLog/date.yml
+  - /home/STD-MO/bspLog/dateRecovery.yml
   tasks:
    - name: transfer file to server
      fetch:
