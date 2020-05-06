@@ -9,6 +9,7 @@ Tar()
 {
 cd /home/jcdcn/bspLogHandle/adCopyId/adCopyIdDetail
 tar -czf ${ysDate}.tar.gz ${ysDate}
+rm -rf /var/www/html/MO/bspLog/${ysDate}.tar.gz
 mv /home/jcdcn/bspLogHandle/adCopyId/adCopyIdDetail/${ysDate}.tar.gz /var/www/html/MO/bspLog
 scp -r  /var/www/html/MO/bspLog/${ysDate}.tar.gz root@beta.chengtong.tech:/home/jcdcn/bspLogHandle/adCopyId/adCopyIdDetail
 }
