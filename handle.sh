@@ -101,7 +101,7 @@ rm -rf ${adCopyIdDetailPath}/${ysDate}/${Type}/*.txt
 for adCopyId in `ls ${adCopyIdDetailPath}/${ysDate}/${Type}`;
 do
         ls ${adCopyIdDetailPath}/${ysDate}/${Type}/${adCopyId} > ${adCopyIdDetailPath}/${ysDate}/${Type}/${adCopyId}.txt
-sed -i "s/_/ /g" ${adCopyIdDetailPath}/${ysDate}/${Type}/${adCopyId}.txt
+        sed -i "s/_/ /g" ${adCopyIdDetailPath}/${ysDate}/${Type}/${adCopyId}.txt
 done
 }
 
