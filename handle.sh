@@ -86,12 +86,14 @@ for hostname in `awk '{print $1}' /home/jcdcn/bspLogHandle/hostname${Type}List`;
                 b=`cat /home/check/playerID/${hostname}`
                 c=`mysql -u root -N -e "use MO;select playerID from playerID where playerName = '${hostname}'"`
                 if [ -s ${playerIDPath} ];then
-                        if [[ "${a}" = "0" || "${b}" != "${c}" ]];then
-                                echo ${lsDate} >> /home/jcdcn/bspLogHandle/adCopyId/timestamp/var
-                                echo ${hostname} >> ${adCopyIdError}/${ysDate}/${Type}.txt
-                        fi
+                        echo "normal" > /dev/null
                 else
                         su STD-MO -c "ansible ${hostname} -b --become-user root --become-method sudo -m shell -a '/usr/bin/sh /home/STD-MO/recordInfoNew.sh'"
+                fi
+                b=`cat /home/check/playerID/${hostname}`
+                if [[ "${a}" = "0" || "${b}" != "${c}" ]];then
+                        echo ${lsDate} >> /home/jcdcn/bspLogHandle/adCopyId/timestamp/var
+                        echo ${hostname} >> ${adCopyIdError}/${ysDate}/${Type}.txt
                 fi
         done
 sort /home/jcdcn/bspLogHandle/adCopyId/timestamp/var | uniq > /home/jcdcn/bspLogHandle/adCopyId/timestamp/${Type}
