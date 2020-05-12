@@ -83,7 +83,6 @@ for hostname in `awk '{print $1}' /home/jcdcn/bspLogHandle/hostname${Type}List`;
         do
                 a=`grep "${hostname}" /home/jcdcn/bspLogHandle/bspLog/${lsDate}/${Type}.txt | wc -l`
                 playerIDPath="/home/check/playerID/${hostname}"
-                b=`cat /home/check/playerID/${hostname}`
                 c=`mysql -u root -N -e "use MO;select playerID from playerID where playerName = '${hostname}'"`
                 if [ -s ${playerIDPath} ];then
                         echo "normal" > /dev/null
