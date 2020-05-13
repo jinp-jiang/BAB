@@ -22,7 +22,7 @@ do
                 i=`sed ':t;N;s/\n//;b t' ${errorHost}`
                 sed -i "2s/.*$/${i}/" /home/STD-MO/bspLog/bspRecoveryLogDP.yml
                 su STD-MO -c "/usr/bin/ansible-playbook /home/STD-MO/bspLog/bspRecoveryLogDP.yml"
-                rm -rf /home/jcdcn/bspLogHandle/adCopyId/adCopyIdDetail/${dateRecovery}/DP*
+                rm -rf /home/jcdcn/bspLogHandle/adCopyId/adCopyIdDetail/${ysDateRecovery}/DP*
                 /usr/bin/sh /home/jcdcn/bspLogHandle/handleRecovery.sh DP ${dateRecovery}
         else
                 echo "DP Normal"
@@ -56,7 +56,7 @@ do
                 i=`sed ':t;N;s/\n//;b t' ${errorHost}`
                 sed -i "2s/.*$/${i}/" /home/STD-MO/bspLog/bspRecoveryLogSPE.yml
                 su STD-MO -c "/usr/bin/ansible-playbook /home/STD-MO/bspLog/bspRecoveryLogSPE.yml"
-                rm -rf /home/jcdcn/bspLogHandle/adCopyId/adCopyIdDetail/${dateRecovery}/SPE*
+                rm -rf /home/jcdcn/bspLogHandle/adCopyId/adCopyIdDetail/${ysDateRecovery}/SPE*
                 /usr/bin/sh /home/jcdcn/bspLogHandle/handleRecovery.sh SPE ${dateRecovery}
         else
                 echo "SPE Normal"
