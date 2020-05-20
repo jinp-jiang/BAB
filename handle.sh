@@ -111,49 +111,8 @@ do
 done
 }
 
-#Be used for BAB Show
-ALLadCopyMySQL()
-{
-mysql -u root -e "use BAB;truncate ${Type}adCopyId;"
-mysql -u root -e "use BAB;
-CREATE TABLE IF NOT EXISTS ${Type}adCopyId(
-   ID INT UNSIGNED AUTO_INCREMENT primary key,
-   screenID VARCHAR(255),
-   adCopyID INT(11),
-   campaignID INT(11),
-   historyCount INT(11),
-   planCount INT(11),
-   difference INT (11),
-   Date VARCHAR(255));"
-mysql -u root -e "use BAB;truncate ${Type}adCopyId;"
-for adCopyId in `cat ${adCopyIdListPath}/${Type}/${ysDate}`
-do
-   IFS=$'\n'
-   for line in `cat ${adCopyIdDetailPath}/${ysDate}/${Type}/${adCopyId}.txt`
-   do
-        echo ${line} > /home/test.txt
-        screenID=`awk '{print $1}' /home/test.txt`
-        historyCount=`awk '{print $2}' /home/test.txt`
-        planCount1=`mysql -u root -e "use BAB;select playCount from adCopy where adCopyID = ${adCopyId}"`
-        planCount=`echo ${planCount1} | awk '{print $2}'`
-        echo ${planCount}
-        campaignID1=`mysql -u root -e "use BAB;select campaign from adCopy where adCopyID = ${adCopyId}"`
-        campaignID=`echo ${campaignID1} | awk '{print $2}'`
-        echo ${campaignID}
-        if [ ! -n "${campaignID}" ];then
-                echo "is NUll"
-        else
-                mysql -u root -e "use BAB;
-                insert into ${Type}adCopyId(screenID,adCopyID,campaignID,historyCount,planCount,Date)values(
-                '${screenID}','${adCopyId}','${campaignID}','${historyCount}','${planCount}','${ysDate}')"
-        fi
-   done
-done
-}
-
 adCopyIdList
 adCopyIdDetail
 Rename
 bspLogError
 bspLogDataTxt
-#ALLadCopyMySQL
