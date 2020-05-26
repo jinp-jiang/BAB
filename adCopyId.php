@@ -136,23 +136,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
                 if (!preg_match("/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/",$deadline))
                         {
                                 $deadlineErr = "YYYY-MM-DD时间格式";
-				$deadline ="";
+                                $deadline ="";
+                        }
+                        else
+                        {
+                        if (strtotime($deadline)<=strtotime($Date))
+                                {
+                                        $deadlineErr = "截止时间已过期";
+                                        $deadline ="";
+                                }
                         }
                 }
                 else
                 {
                         $deadlineErr = "截止日期不得为空";
                 }
-
-		if (strtotime($deadline)<=strtotime($Date))
-                {
-                	$deadlineErr = "截止时间已过期";
-                        $deadline ="";
-                }
-		else
-		{
-			$deadlineErr = "截止日期不得为空";
-		}
 		if (!empty($CampaignID) && !empty($playCount) && !empty($deadline) && !empty($startTime))
 		{
 			/*if (!preg_match("/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/",$deadline))
