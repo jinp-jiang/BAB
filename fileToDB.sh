@@ -73,7 +73,7 @@ do
                         echo "is NUll" > /dev/null
                 else
                         echo ${campaignID} ${adCopyId} ${screenID}
-			mysql -h 10.179.245.222 -u'STD-MO' -p'STdg123!' -e "use BAB;insert into dataAnalysis(customerName,screenName,adCopyID,campaignID,historyCount,planCount,date)values('${customerName}','${screenID}','${adCopyId}','${campaignID}','${historyCount}','${planCount}','${ysDate}') on duplicate key update customerName='${customerName}',screenName='${screenID}',adCopyID='${adCopyId}',campaignID='${campaignID}',historyCount='${historyCount}',planCount='${planCount}',date='${ysDate}';"
+			mysql -h 10.179.245.222 -u'STD-MO' -p'STdg123!' -e "use BAB;insert into dataAnalysis(customerName,screenName,adCopyID,campaignID,historyCount,planCount,date,mediaType)values('${customerName}','${screenID}','${adCopyId}','${campaignID}','${historyCount}','${planCount}','${ysDate}','${Type}') on duplicate key update customerName='${customerName}',screenName='${screenID}',adCopyID='${adCopyId}',campaignID='${campaignID}',historyCount='${historyCount}',planCount='${planCount}',date='${ysDate}',mediaType='${Type}';"
                 fi
            done
         done
