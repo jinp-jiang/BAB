@@ -72,4 +72,9 @@ sed -i "/${dateRecovery}/d" /home/jcdcn/bspLogHandle/adCopyId/timestamp/timestam
 else
         cat /dev/null > /home/jcdcn/bspLogHandle/adCopyId/timestamp/var
         echo “Normal”
+        if [ -s /home/jcdcn/bspLogHandle/email-tmp ];then
+                echo "email ok"
+        else
+                /usr/bin/sh /home/jcdcn/bspLogHandle/emailRecovery.sh
+        fi
 fi
