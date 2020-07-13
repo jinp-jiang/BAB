@@ -105,4 +105,10 @@ echo "OK" > /home/jcdcn/bspLogHandle/email-tmp
 
 Tar
 LEDpercent
-sendmail
+count
+emailstamp="/home/jcdcn/bspLogHandle/email-tmp"
+if [ -s ${emailstamp} ];then
+        echo "ok"
+else
+        sendmail
+fi
