@@ -4,6 +4,34 @@ ysDate=`date -d'yesterday' +'%F'`
 #lsDate="$1"
 #ysDate=`date -d "${lsDate} -1 days" "+%Y-%m-%d"`
 
+Count()
+{
+cat /dev/null > /home/jcdcn/bspLogHandle/1.txt
+for LEDadCopyID in `cat /home/jcdcn/bspLogHandle/adCopyId/adCopyIdList/LED/${ysDate}`
+do
+        a=`mysql -h 10.179.245.222 -u'STD-MO' -p'STdg123!' -e "use BAB;select adCopyID from customerInfo where adCopyID = '${LEDadCopyID}'"`
+echo ${a}
+        if [ -n "${a}" ];then
+                sort -t " " -k2 -n /home/jcdcn/bspLogHandle/adCopyId/adCopyIdDetail/${ysDate}/LED/${LEDadCopyID}.txt | awk '{print $2}' > /home/jcdcn/bspLogHandle/LEDpercent.txt
+                echo ${LEDadCopyID}: >> /home/jcdcn/bspLogHandle/1.txt
+                uniq -c /home/jcdcn/bspLogHandle/LEDpercent.txt | awk '$0=$0"次)"' | awk '$1=$1"台("' | sed "s/( /(/g" | sed ':t;N;s/\n/,/;b t' >> /home/jcdcn/bspLogHandle/1.txt
+        fi
+done
+
+cat /dev/null > /home/jcdcn/bspLogHandle/2.txt
+for DPadCopyID in `cat /home/jcdcn/bspLogHandle/adCopyId/adCopyIdList/DP/${ysDate}`
+do
+        a=`mysql -h 10.179.245.222 -u'STD-MO' -p'STdg123!' -e "use BAB;select adCopyID from customerInfo where adCopyID = '${DPadCopyID}'"`
+echo ${a}
+        if [ -n "${a}" ];then
+                sort -t " " -k2 -n /home/jcdcn/bspLogHandle/adCopyId/adCopyIdDetail/${ysDate}/DP/${DPadCopyID}.txt | awk '{print $2}' > /home/jcdcn/bspLogHandle/DPpercent.txt
+                echo ${DPadCopyID}: >> /home/jcdcn/bspLogHandle/2.txt
+                uniq -c /home/jcdcn/bspLogHandle/DPpercent.txt | awk '$0=$0"次)"' | awk '$1=$1"台("' | sed "s/( /(/g" | sed ':t;N;s/\n/,/;b t' >> /home/jcdcn/bspLogHandle/2.txt
+        fi
+done
+echo "" >> /home/jcdcn/bspLogHandle/1.txt
+}
+
 #Package and upload to FTP
 Tar()
 {
@@ -71,6 +99,8 @@ echo "Best Regards" >> /home/jcdcn/bspLogHandle/report
 #su STD-MO -c "cat /home/jcdcn/bspLogHandle/report | /usr/bin/mutt -s "${ysDate}日志收集" jinp.jiang@jcdecaux.com"
 
 su STD-MO -c "cat /home/jcdcn/bspLogHandle/report | /usr/bin/mutt -s "${ysDate}日志收集" james.ling@jcdecaux.com,ekko.gu@jcdecaux.com,dechen.xu@jcdecaux.com -c "eric.zhu@jcdecaux.com,yassel.jiang@jcdecaux.com,sam.cheng@jcdecaux.com,jinp.jiang@jcdecaux.com""
+
+echo "OK" > /home/jcdcn/bspLogHandle/email-tmp
 }
 
 Tar
